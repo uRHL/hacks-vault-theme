@@ -2,17 +2,9 @@
 
 <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
   <header class="profile-wrapper">
-    <a href="{{ '/' | relative_url }}" id="avatar" class="rounded-circle">
-      {%- if site.avatar != empty and site.avatar -%}
-        {%- capture avatar_url -%}
-          {% include media-url.html src=site.avatar %}
-        {%- endcapture -%}
-        <img src="{{- avatar_url -}}" width="112" height="112" alt="avatar" onerror="this.style.display='none'">
-      {%- endif -%}
-    </a>
-
-    <a class="site-title d-block" href="{{ '/' | relative_url }}">{{ site.title }}</a>
-    <p class="site-subtitle fst-italic mb-0">{{ site.tagline }}</p>
+    <a class="site-title d-block workbench-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+    <p class="site-subtitle mb-0 transparent">{{ site.tagline }}</p>
+    <span class="site-subtitle transparent">[*] Feeding brain</span><span class="blinking-cursor site-subtitle">_</span>
   </header>
   <!-- .profile-wrapper -->
 
@@ -20,19 +12,22 @@
     <ul class="nav">
       <!-- home -->
       <li class="nav-item{% if page.layout == 'home' %}{{ " active" }}{% endif %}">
-        <a href="{{ '/' | relative_url }}" class="nav-link">
-          <i class="fa-fw fas fa-home"></i>
+        <a href="{{ '/' | relative_url }}" class="nav-link blinking-hover transparent">
+          <!--<i class="fa-fw fas fa-home"></i>-->
+          <span class="item-selector">></span>
+          <span class="var-preffix transparent">$</span>
           <span>{{ site.data.locales[include.lang].tabs.home | upcase }}</span>
         </a>
       </li>
       <!-- the real tabs -->
       {% for tab in site.tabs %}
         <li class="nav-item{% if tab.url == page.url %}{{ " active" }}{% endif %}">
-          <a href="{{ tab.url | relative_url }}" class="nav-link">
-            <i class="fa-fw {{ tab.icon }}"></i>
+          <a href="{{ tab.url | relative_url }}" class="nav-link blinking-hover">
+            <!--<i class="fa-fw {{ tab.icon }}"></i>-->
             {% capture tab_name %}{{ tab.url | split: '/' }}{% endcapture %}
-
-            <span>{{ site.data.locales[include.lang].tabs.[tab_name] | default: tab.title | upcase }}</span>
+            <span class="item-selector">></span>
+            <span class="var-preffix transparent">$</span>
+            <span class="transparent">{{ site.data.locales[include.lang].tabs.[tab_name] | default: tab.title | upcase }}</span>
           </a>
         </li>
         <!-- .nav-item -->

@@ -36,7 +36,7 @@ search {
 }
 
 #search-result-wrapper {
-  display: none;
+  display: block;
   height: 100%;
   width: 100%;
   overflow: auto;
@@ -112,7 +112,7 @@ search {
     /* icons */
     i {
       color: #818182;
-      margin-right: 0.15rem;
+      margin-right: 0.9rem;
       font-size: 80%;
     }
 
@@ -123,6 +123,8 @@ search {
       display: -webkit-box;
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
+      padding-left: 1rem;
+      padding-right: 1rem;
     }
   }
 }

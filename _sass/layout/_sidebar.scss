@@ -142,7 +142,7 @@ $sidebar-display: 'sidebar-display'; /* the attribute for sidebar display */
         font-weight: 600;
 
         &:hover {
-          background-color: var(--sidebar-hover-bg);
+          //background-color: var(--sidebar-hover-bg);
         }
 
         i {
@@ -160,7 +160,8 @@ $sidebar-display: 'sidebar-display'; /* the attribute for sidebar display */
       &.active {
         .nav-link {
           color: var(--sidebar-active-color);
-          background-color: var(--sidebar-hover-bg);
+          //background-color: var(--sidebar-hover-bg);
+          border: 1px solid #65bdb7;
 
           span {
             opacity: 1;
@@ -190,13 +191,14 @@ $sidebar-display: 'sidebar-display'; /* the attribute for sidebar display */
       width: $btn-size;
       height: $btn-size;
       margin-bottom: $btn-mb; // multi line gap
-      border-radius: 50%;
+      border-radius: 0.5rem;
       color: var(--sidebar-btn-color);
-      background-color: var(--sidebar-btn-bg);
+      //background-color: var(--sidebar-btn-bg);
       text-align: center;
       display: flex;
       align-items: center;
       justify-content: center;
+      //border: 1px solid #81b45b;
 
       &:not(:focus-visible) {
         box-shadow: var(--sidebar-border-color) 0 0 0 1px;
@@ -204,6 +206,7 @@ $sidebar-display: 'sidebar-display'; /* the attribute for sidebar display */
 
       &:hover {
         background-color: var(--sidebar-hover-bg);
+        border: 1px solid #65bdb7;
       }
     }
 

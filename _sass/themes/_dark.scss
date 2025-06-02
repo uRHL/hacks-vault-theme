@@ -8,14 +8,14 @@
 
   /* Common color */
   --text-color: rgb(175, 176, 177);
-  --text-muted-color: #868686;
-  --text-muted-highlight-color: #aeaeae;
-  --heading-color: #cccccc;
+  --text-muted-color: #AFB0B1;//#868686;
+  --text-muted-highlight-color: #81b45b;
+  --heading-color: #81b45b;//#cccccc;
   --label-color: #a7a7a7;
   --blockquote-border-color: rgb(66, 66, 66);
   --blockquote-text-color: #868686;
-  --link-color: rgb(138, 180, 248);
-  --link-underline-color: rgb(82, 108, 150);
+  --link-color: #81b45b;//rgb(138, 180, 248);
+  --link-underline-color: #65bdb7;//rgb(82, 108, 150);
   --button-bg: #1e1e1e;
   --btn-border-color: #2e2f31;
   --btn-backtotop-color: var(--text-color);
@@ -32,15 +32,15 @@
   );
 
   /* Sidebar */
-  --site-title-color: #717070;
+  --site-title-color: #81b45b; //#717070;
   --site-subtitle-color: #868686;
-  --sidebar-bg: #1e1e1e;
-  --sidebar-border-color: #292929;
-  --sidebar-muted-color: #868686;
-  --sidebar-active-color: rgb(255, 255, 255, 0.95);
+  --sidebar-bg: #000000;//#1e1e1e;
+  --sidebar-border-color: #292929;//#868686;
+  --sidebar-muted-color: #81b45b;
+  --sidebar-active-color: #65bdb7;
   --sidebar-hover-bg: #262626;
   --sidebar-btn-bg: #232328;
-  --sidebar-btn-color: #787878;
+  --sidebar-btn-color: #81b45b;//#787878;
   --avatar-border-color: rgb(206, 206, 206, 0.9);
 
   /* Topbar */
@@ -58,15 +58,15 @@
   /* Posts */
   --toc-highlight: rgb(116, 178, 243);
   --toc-popup-border-color: #373737;
-  --tag-hover: rgb(43, 56, 62);
+  --tag-hover: rgb(43, 56, 62); // TODO change hover
   --tb-odd-bg: #252526; /* odd rows of the posts' table */
   --tb-even-bg: rgb(31, 31, 34); /* even rows of the posts' table */
   --tb-border-color: var(--tb-odd-bg);
   --footnote-target-bg: rgb(63, 81, 181);
-  --btn-share-color: #6c757d;
-  --btn-share-hover-color: #bfc1ca;
+  --btn-share-color: #81b45b;
+  --btn-share-hover-color: #65bdb7;
   --card-bg: #1e1e1e;
-  --card-hovor-bg: #464d51;
+  --card-hovor-bg: #000000ff//#464d51; //TODO
   --card-shadow: rgb(21, 21, 21, 0.72) 0 6px 18px 0,
     rgb(137, 135, 135, 0.24) 0 0 0 1px;
   --kbd-wrap-color: #6a6a6a;

@@ -4,15 +4,13 @@
 -->
 
 {% capture result_elem %}
-  <article class="px-1 px-sm-2 px-lg-4 px-xl-0">
-    <header>
-      <h2><a href="{url}">{title}</a></h2>
-      <div class="post-meta d-flex flex-column flex-sm-row text-muted mt-1 mb-1">
-        {categories}
-        {tags}
-      </div>
-    </header>
-    <p>{content}</p>
+  <article class="card-wrapper card">
+    <h1 class="card-title my-2 mt-md-0"><a href="{url}">{title}</a></h1>
+    <div class="card-text content mt-0"><p>{content}</p></div>
+    <div class="post-meta d-flex flex-column flex-sm-row text-muted mt-1 mb-1">
+      {categories}
+      {tags}
+    </div>
   </article>
 {% endcapture %}
 

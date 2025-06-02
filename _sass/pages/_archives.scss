@@ -28,12 +28,13 @@
     position: relative;
     left: 2px;
     margin-left: -$timeline-width;
+    padding-left: 1rem;
 
     &::before {
       @extend %timeline;
 
       height: 72px;
-      left: 79px;
+      left: 107px;
       bottom: 16px;
     }
 
@@ -52,7 +53,7 @@
       border-radius: 50%;
       width: 12px;
       height: 12px;
-      left: 21.5px;
+      left: 39.5px;
       border: 3px solid;
       background-color: var(--timeline-year-dot-color);
       border-color: var(--timeline-node-bg);
@@ -84,7 +85,7 @@
         @extend %timeline;
 
         top: 0;
-        left: 77px;
+        left: 121px;
         height: 3.1rem;
       }
     }
@@ -108,6 +109,7 @@
     &.day {
       font-size: 85%;
       font-family: Lato, sans-serif;
+      padding-left: 1rem;
     }
   }
 
@@ -116,6 +118,7 @@
     margin-left: 2.5rem;
     position: relative;
     top: 0.1rem;
+    padding-left: 1rem;
 
     &:hover {
       border-bottom: none;
@@ -131,7 +134,7 @@
       height: 8px;
       float: left;
       top: 1.35rem;
-      left: 71px;
+      left: 115px;
       background-color: var(--timeline-node-bg);
       box-shadow: 0 0 3px 0 #c2c6cc;
       z-index: 1;

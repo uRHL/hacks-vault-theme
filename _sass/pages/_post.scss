@@ -25,7 +25,8 @@ header {
 
   .post-meta {
     span + span::before {
-      @include -dot;
+      content: "[*] "
+      //@include -dot;
     }
 
     em,
@@ -79,7 +80,7 @@ header {
     user-select: none;
 
     %icon-size {
-      font-size: 1.125rem;
+      font-size: 1rem;//1.125rem;
     }
 
     .share-icons {

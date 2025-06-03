@@ -306,6 +306,7 @@ div.content > h1 {
 }
 .st1 {
   fill: none;
+  //TODO: animation: pulses 2s timing-function delay iteration-count direction fill-mode;
   stroke: #81b45b;
   stroke-linecap: round;
   stroke-miterlimit: 10;
@@ -430,4 +431,15 @@ div.sidebar-bottom > a {
   opacity: 0 !important;
   color: transparent;
   display: none;
+}
+
+.fade {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  pointer-events: none; /* Optional: avoid interaction when hidden */
+}
+
+.fade.show {
+  opacity: 1;
+  pointer-events: auto;
 }

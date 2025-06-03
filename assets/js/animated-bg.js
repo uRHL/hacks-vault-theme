@@ -77,7 +77,7 @@ function toggleBackgroundColor(){
 
 async function terminalAnimation(){
 
-  function typingAnimation(elem, text, index=0){
+  async function typingAnimation(elem, text, index=0){
     text = text.replaceAll('>', ' ');
     if(index == 0){
       elem.textContent = '';
@@ -91,64 +91,68 @@ async function terminalAnimation(){
       elem.textContent += text[index]==undefined?'':text[index];
       index++;
       return new Promise((resolve) => {
-        setTimeout(() => resolve(typingAnimation(elem, text, index)), 100);
+        setTimeout(() => resolve(typingAnimation(elem, text, index)), 50);
       });
     }else {
+      if(elem.nodeName == 'A'){
+        await printlnAnimation(document.querySelector('#sidebar > header > p.site-subtitle'));
+      }
       return
     } 
   }
 
   async function printlnAnimation(elem){
-    const MAX_LINE_CLAMP = 5;
-    elem.style.opacity = 1; 
+    const MAX_LINE_CLAMP = 4;
+    let prev = elem.style.webkitLineClamp;
     elem.style.webkitLineClamp++;
+    if(prev == 1){
+      return new Promise((resolve) => {
+        setTimeout( async () => {
+          elem.style.opacity = 1;
+          elem.classList.remove('transparent');
+          await printlnAnimation(elem);
+        }, 700);
+      });
+    }
     switch(Number(elem.style.webkitLineClamp)){
-      case 1:
       case 2:
         //{show contact-animate-fadein}
         //setTimeout(() => resolve(printlnAnimation, elem), 1300);
         return new Promise((resolve) => {
-            setTimeout(() => resolve(printlnAnimation(elem)), 2000);
+            setTimeout(() => {
+              resolve(printlnAnimation(elem))
+            }, 3000);
           });
-      case 3:
-        //{show posts-animation-fadein, animateBackground}
-        //setTimeout(() => resolve(printlnAnimation, elem), 1300);
+      case 3: //{show tabs-typing, posts-fadein, background-animation}
         new Promise((resolve) => {
           resolve(animateAll('#sidebar nav'))
         }).then(()=>{
-          return new Promise((resolve) => {
-            setTimeout(() => resolve(printlnAnimation(elem)), 4000);
-          });
+          const showElems = (index) => {
+            if(index == null){
+              index = 0;
+            }
+            try {
+              document.querySelectorAll('#post-list > article.card-wrapper.card.fade')[index].classList.add('show')
+              index++;
+              setTimeout(showElems, 400, index);  
+            } catch (error) {
+              setTimeout(() => {
+                typingAnimation(
+                  document.querySelector('#sidebar > header > span.site-subtitle'),
+                  document.querySelector('#sidebar > header > span.site-subtitle').textContent,
+                  0
+                )
+              }, 3000);
+              try {
+                animateBackground();  
+              } catch (error) {
+                printlnAnimation(elem)
+              }
+            } 
+          }
+          showElems();
         });
-        //return new Promise((resolve) => {
-        //  setTimeout(() => resolve(printlnAnimation(elem)), 1300);
-        //});
-      case 4:
-        //{show tabs-animate-typeText}
-        //await animateAll('#sidebar nav');
-        return new Promise((resolve) => {
-          setTimeout(() => resolve(printlnAnimation(elem)), 2000);
-        });
-        return new Promise((resolve) => {
-          resolve(animateAll('#sidebar nav'))
-        });
-        //setTimeout(() => resolve(printlnAnimation, elem), 1200);
-      case MAX_LINE_CLAMP:
-        setTimeout(async () => {
-            await typingAnimation(
-              document.querySelector('#sidebar > header > span.site-subtitle'),
-              document.querySelector('#sidebar > header > span.site-subtitle').textContent,
-              0
-            )
-            animateBackground();
-            //return new Promise((resolve) => {
-            //  resolve(animateAll('#sidebar > header > span.site-subtitle'));
-            //});
-          }, 2300);
     }
-      //return new Promise((resolve) => {
-      //  setTimeout(() => resolve(printlnAnimation(elem)), 1500);
-      //});
   }
 
   async function animateAll(selector) {
@@ -159,21 +163,15 @@ async function terminalAnimation(){
       console.warn("DEBUG", el.nodeName);
       switch(el.nodeName){  
         case 'SPAN':
+          await typingAnimation(el, text, 0);
+          break;
         case 'A':
-          //el.textContent = '';  
-          //el.style.opacity = 1;
-          await typingAnimation(el, text, 0)//.then(() => {
-          //resolve();
-          //});
-          //resolve(); // Proceed to next element
+          typingAnimation(el, text, 0)//.then()
           break;
-        case 'P':
-          //el.style.opacity = 1;
-          el.classList.remove('transparent');
-          await printlnAnimation(el)//.then(() => {
-          //resolve();
-          //});
-          break;
+        //case 'P':
+        //  //el.classList.remove('transparent');
+        //  await printlnAnimation(el)//.then()
+        //  break;
         case 'NAV':
           //for rows in nav, typeText(row)
           let navBefore = Array.from(document.querySelectorAll('#sidebar span.var-preffix'));
@@ -191,7 +189,7 @@ async function terminalAnimation(){
     
   }
   // Run animation for all <a> and <p> el ements (in order)
-  animateAll("#sidebar > header > a, #sidebar > header > p");//, #sidebar > nav");
+  animateAll("#sidebar > header > a");//, #sidebar > header > p, #sidebar > nav");
   
 }
 //document.addEventListener('DOMContentLoaded', animateBackground);

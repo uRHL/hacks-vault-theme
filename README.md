@@ -1,22 +1,16 @@
 <!-- markdownlint-disable-next-line -->
-<div id="banner" align="center">
-  <style>
-    #banner {
-      align-items: center;
-      display: flex;
-      width: 100%;
-      font-size: 6rem;
-      font-family: monospace;
-      color: #65bdb7;
-    }
-    #banner > a {
-      height: 192px;
-      margin: 0 1rem;
-    }
-  </style>
-  <span>Hacks</span>
+<div align="center" style="
+    align-items: center;
+    display: flex;
+    width: 100%;
+    font-size: 6rem;
+    font-family: monospace;
+    color: #9FEF00;
+    line-height: 1rem;
+">
+  <span style="margin-right: 1rem;">Hacks</span>
   <img src="assets/img/favicons/android-chrome-192x192.png">
-  <span>Vault</span>
+  <span style="margin-left: 1rem;">Vault</span>
 </div>
 <br><br>
 

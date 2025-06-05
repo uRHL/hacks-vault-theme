@@ -1,9 +1,10 @@
 <!-- markdownlint-disable-next-line -->
 <div align="center">
-
   <!-- markdownlint-disable-next-line -->
-  # Hacks-Vault Jekyll Theme
+  <img src="assets/img/favicons/android-chrome-192x192.png">  
 </div>
+
+# Hacks-Vault Jekyll Theme
 
 Customized version of Chirpy theme to look more like a terminal
 
@@ -15,7 +16,7 @@ To deploy your site locally Jekyll must be installed in you system. You can find
 
 ## How to use it
 
-There are two ways of using this theme. If you need to keep your site repository private, use the *Clone* option. You will not be able to use GitHub pages with the repo but you can still serve your site locally (`bundle exec jekyll serve`). In any other case, it is recommended to use *Fork* option.
+There are two ways of using this theme. If you need to keep your site repository private, use the *Clone* option. You will not be able to use GitHub pages with the repo but you can still serve your site locally. In any other case, it is recommended to use *Fork* option.
 
 
 |    |         Fork            |                 Clone                  |
@@ -26,9 +27,8 @@ There are two ways of using this theme. If you need to keep your site repository
 
 ### Fork
 
-1. Go to the [repository](https://github.com/uRHL/hacks-vault-theme.git)
-2. Create a new fork. Use the name you prefer for your Vault (may be changed later)
-3. Clone the forked repository
+1. Create a new fork of this repository. Use the name you prefer for your Vault (may be changed later)
+2. Clone the forked repository
 
 ```bash
 git clone https://github.com/your-username/forked-repo.git
@@ -62,7 +62,7 @@ bundle exec jekyll serve # Serve at 127.0.0.1:4000
 
 ## Setup GitHub pages
 
-> If you are using a free account, you will not be able to host your site in GitHub pages if the repository is private. Thus first of all the repository must be public. If this is not the case, go to `Settings` > `Danger Zone` > `Change repository visibility`.
+> If you are using a free account, you will not be able to host your site in GitHub pages if the repository is private. Thus first of all the repository must be public. If this is not the case, go to `Settings > Danger Zone > Change repository visibility`.
 
 The recommended deployment option is `GitHub Actions`, although you can use the traditional way.
 Go to `Settings > Pages`. Select `GitHub Actions`, then create a new workflow from `Jekyll` template. Ensure `main` branch is targeted in the workflow, then commit the workflow. 
@@ -75,27 +75,32 @@ Workflow and environment are now configured. Each time you push any change to th
 ## Changelog
 - Favicon
   - Thanks to by [Viscious Speed](https://viscious-speed.deviantart.com/) and [Games-Icons](https://game-icons.net/).
-- Font families
-  - Headings: "Anonymous Pro" monospace
-  - Text: "Fira Code" monospace
-  - Site title, Post title: "Workbench" Sans-serif
+- Font families (from [Google Fonts](https://fonts.google.com/))
+  - Headings: _Anonymous Pro_ monospace
+  - Text: _Fira Code_ monospace
+  - Site title, Post title: _Workbench_ Sans-serif
 - Color code
   - All clickable elements are green colored. When hover over them, they are highlighted in blue
-- _include/sidebar.html
+- Sidebar
   - Animation: typing terminal like. Only triggered when loading HOME page
   - Avatar moded from sidebar to `About` page
-  - Site title: change font to "Workbench"
-  - Site subtitle: show terminal-like log messages. Add "blinking low-dash" after last line 
+  - Site title: change font to `Workbench`
+  - Site subtitle: show terminal-like log messages. Add _blinking low-dash_ after last line 
   - Tabs
     - Add item selector `>` shown on hover
     - Change Icons by `$`
     - Active section blue color, inactive green
   - Contact
-    - TODO: Add chip legs around contact elements
+    - [ ] TODO: Add chip legs around contact elements
 - Page
   - Move `Trending tags` from right-aside to `Tags`page
-  - Add animated background "circuit animation". Thanks to [Christopher Prins](https://codepen.io/christopherprins/pen/rZZWoj)
+  - Add animated background _circuit animation_. Thanks to [Christopher Prins](https://codepen.io/christopherprins/pen/rZZWoj)
   - Change colors, round borders
+- Post
+  - Post metadata (header and footer) is now displayed using a terminal-like style
+  - [ ] TODO: Add `TOC` again to post pages
+- Search results
+  - Change style to look like the home page
 
 ## TODOs
 

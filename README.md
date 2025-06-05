@@ -1,9 +1,5 @@
 <!-- markdownlint-disable-next-line -->
-<div align="center" style="align-items: center; display: flex; width: 100%; font-size: 6rem; font-family: monospace; color: #9FEF00; line-height: 1rem;">
-  <span style="margin-right: 1rem;">Hacks</span>
-  <img src="assets/img/favicons/android-chrome-192x192.png">
-  <span style="margin-left: 1rem;">Vault</span>
-</div>
+<img src="assets/img/banner.png">
 <br><br>
 
 # Hacks-Vault Jekyll Theme

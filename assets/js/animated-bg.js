@@ -17,6 +17,7 @@ function animateBackground(){
 }
 
 function getTextWidth(elem){
+  console.warn(elem);
   const style = window.getComputedStyle(elem);
 
   // Construct the full font shorthand used by canvas

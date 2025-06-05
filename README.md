@@ -12,7 +12,7 @@ Customized version of Chirpy theme to look more like a terminal
 
 To deploy your site locally Jekyll must be installed in you system. You can find the instructions in the [Jekyll official documentation]((https://jekyllrb.com/docs/installation/)).
 
-## How to use it
+## Installation
 
 There are two ways of using this theme. If you need to keep your site repository private, use the *Clone* option. You will not be able to use GitHub pages with the repo but you can still serve your site locally. In any other case, it is recommended to use *Fork* option.
 
@@ -45,7 +45,45 @@ git remote set-url origin https://github.com/your-username/private-repo.git
 git push -u origin main
 ```
 
-Now you should have the theme installed and ready to run.
+Once you have installed the theme:
+1. Update the configuration (`_config.yml`) with your information (url, description, ...)
+2. `_data/origin/authors.yml`
+2. Delete example posts (`_posts` directory)
+
+Done! You may start adding your content.
+
+## Customizing your site
+
+### Posts
+
+Adding posts to a jekyll site is as easy as creating a specific file name: `%YYYY-%MM-%DD-your_post_title.md`. Then add the following Front-Matter:
+
+```yml
+---
+title: Post title
+categories: [main-cat, sub-cat] # lower-cased. Max sub-cat depth = 1
+tags: [tag-1, tag-2, tag-n] # lower-cased. From 0 to infite values
+---
+```
+
+Start writing the post content just after the Front-Matter. The post will be visible once you have deployed the changes.
+
+
+### Tabs
+
+Create a file `_tabs/tab_name.md` with the following Front-Matter:
+
+```yml
+---
+# the default layout is 'page'
+# icon: fas fa-info-circle  # Tabs icons are disabled in this theme
+order: 4 # Display order in the sidebar
+---
+```
+
+Now update `_data/locales/en.yml` (and/or the locale you want to use) adding the new tab into the `tabs` key (around line 10). For example: `donate: Donate`. 
+
+Ready! The new tab will be displayed once you deploy the changes.
 
 ## Local deployment
 

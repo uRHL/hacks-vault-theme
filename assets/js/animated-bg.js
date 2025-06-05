@@ -75,6 +75,44 @@ function toggleBackgroundColor(){
   }
 }
 
+function updateAnchorChipLegs(){
+  const elems = Array.from(document.querySelectorAll('div.chip-wrapper'));
+  elems.forEach(el => {
+    const width = el.offsetWidth;
+    const height = el.offsetHeight;
+
+    const spacing = 2;  // px between pins
+    const thickness = 2; // leg width or height
+    const length = 6;   // leg depth
+
+    // Count pins per edge
+    const horizontalPins = Math.floor(width / spacing);
+    const verticalPins = Math.floor(height / spacing);
+
+    const pinGradientHorizontal = `repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent ${length - thickness / 2}px,
+    #81b45b ${length - thickness / 2}px,
+      #81b45b ${length + thickness / 2}px,
+      transparent ${length + thickness / 2}px
+    )`;
+
+    const pinGradientVertical = `repeating-linear-gradient(
+      to right,
+      transparent 0,
+      transparent ${length - thickness / 2}px,
+    #81b45b ${length - thickness / 2}px,
+    #81b45b ${length + thickness / 2}px,
+      transparent ${length + thickness / 2}px
+    )`;
+    el.style.setProperty('--pin-background', `${pinGradientVertical}, ${pinGradientHorizontal}`);
+    el.style.setProperty('--pin-repeat', 'no-repeat');//'repeat-x');
+    el.style.setProperty('--pin-size', `5px 10px`);
+    el.style.setProperty('--pin-position', 'top, bottom, left, right');
+  });
+}
+
 async function terminalAnimation(){
 
   async function typingAnimation(elem, text, index=0){
@@ -104,12 +142,16 @@ async function terminalAnimation(){
   async function printlnAnimation(elem){
     const MAX_LINE_CLAMP = 4;
     let prev = elem.style.webkitLineClamp;
-    elem.style.webkitLineClamp++;
-    if(prev == 1){
+    if(elem.classList.contains('transparent')){
+      elem.classList.remove('transparent');
+    } else {
+      elem.style.webkitLineClamp++;
+    }
+    if(elem.style.webkitLineClamp == 1){
       return new Promise((resolve) => {
         setTimeout( async () => {
           elem.style.opacity = 1;
-          elem.classList.remove('transparent');
+          //elem.classList.remove('transparent');
           await printlnAnimation(elem);
         }, 700);
       });
@@ -119,10 +161,12 @@ async function terminalAnimation(){
         //{show contact-animate-fadein}
         //setTimeout(() => resolve(printlnAnimation, elem), 1300);
         return new Promise((resolve) => {
+            updateAnchorChipLegs();
             setTimeout(() => {
               resolve(printlnAnimation(elem))
             }, 3000);
           });
+          
       case 3: //{show tabs-typing, posts-fadein, background-animation}
         new Promise((resolve) => {
           resolve(animateAll('#sidebar nav'))

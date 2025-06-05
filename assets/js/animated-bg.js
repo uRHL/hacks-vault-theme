@@ -240,7 +240,7 @@ async function terminalAnimation(){
 //document.addEventListener('DOMContentLoaded', animateBackground);
 document.addEventListener('DOMContentLoaded', async () => {
   document.querySelector('body').style.display = 'block';
-  if(new URL(document.URL).pathname == '/'){ // home page
+  if(['/', '/hacks-vault-theme/'].includes(new URL(document.URL).pathname)){ // home page
     await terminalAnimation();
     //animateBackground();
   } else {

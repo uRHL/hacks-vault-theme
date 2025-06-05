@@ -1,24 +1,24 @@
 <!-- markdownlint-disable-next-line -->
-<style>
-  #banner {
-    align-items: center;
-    display: flex;
-    width: 100%;
-    font-size: 6rem;
-    font-family: monospace;
-    color: #81b45b;
-  }
-
-  #banner > a {
-    height: 192px;
-    margin: 0 1rem;
-  }
-</style>
 <div id="banner" align="center">
+  <style>
+    #banner {
+      align-items: center;
+      display: flex;
+      width: 100%;
+      font-size: 6rem;
+      font-family: monospace;
+      color: #65bdb7;
+    }
+    #banner > a {
+      height: 192px;
+      margin: 0 1rem;
+    }
+  </style>
   <span>Hacks</span>
   <img src="assets/img/favicons/android-chrome-192x192.png">
   <span>Vault</span>
 </div>
+<br><br>
 
 # Hacks-Vault Jekyll Theme
 

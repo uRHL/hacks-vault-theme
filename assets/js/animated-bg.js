@@ -273,10 +273,13 @@ document.getElementById('search-input').addEventListener('selectionchange', togg
 document.addEventListener('DOMContentLoaded', async () => {
   document.querySelector('body').style.display = 'block';
   let styleSheetId = 0;
+  let pathIndex = 2;
   if(document.URL.startsWith('http://127.0.0.1')){
     styleSheetId = 1;
+    pathIndex = 1;
   }
-  switch(new URL(document.URL).pathname.split('/')[1]){
+  console.warn(new URL(document.URL).pathname.split('/'), pathIndex)
+  switch(new URL(document.URL).pathname.split('/')[pathIndex]){
     case '':
     case 'hacks-vault-theme':
     case 'hacks-vault':

@@ -257,6 +257,13 @@ function forceSidebarDisplay() {
   });
 }
 
+function addCssRule(sheetId, rule){
+  document.styleSheets[sheetId].insertRule(
+    `${rule}`, 
+    document.styleSheets[sheetId].cssRules.length
+  );
+}
+
 // ===========================
 //          M A I N 
 // ===========================
@@ -265,32 +272,27 @@ function forceSidebarDisplay() {
 document.getElementById('search-input').addEventListener('selectionchange', toggleBackgroundColor);
 document.addEventListener('DOMContentLoaded', async () => {
   document.querySelector('body').style.display = 'block';
+  let styleSheetId = 0;
+  if(document.URL.startsWith('http://127.0.0.1')){
+    styleSheetId = 1;
+  }
   switch(new URL(document.URL).pathname.split('/')[1]){
     case '':
     case 'hacks-vault-theme':
     case 'hacks-vault':
-      document.styleSheets[1].insertRule(
-        `main div.content {padding: 1rem !important;}`, 
-        document.styleSheets[1].cssRules.length
-      );
+      addCssRule(styleSheetId, `main div.content {padding: 1rem !important;}`);
       await terminalAnimation();
       //animateBackground();
       break;
     case 'about':
       updateChipLegs();
     case 'posts':
-      document.styleSheets[1].insertRule(
-        `main div.content {padding: 1rem 2rem 3rem !important;margin-top: 0;}`, 
-        document.styleSheets[1].cssRules.length
-      );
+      addCssRule(styleSheetId, `main div.content {padding: 1rem 2rem 3rem !important;margin-top: 0;}`);
       forceSidebarDisplay();
       animateBackground();
       break;
     default:
-      document.styleSheets[1].insertRule(
-        `main div.content {padding: 1rem !important;background-color: rgba(20,20,20,.8);}`, 
-        document.styleSheets[1].cssRules.length
-      );
+      addCssRule(styleSheetId, `main div.content {padding: 1rem !important;background-color: rgba(20,20,20,.8);}`);
       forceSidebarDisplay();
       updateChipLegs();
       animateBackground();

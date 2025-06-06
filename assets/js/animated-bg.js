@@ -234,39 +234,65 @@ async function terminalAnimation(){
     
   }
   // Run animation for all <a> and <p> el ements (in order)
-  animateAll("#sidebar > header > a");//, #sidebar > header > p, #sidebar > nav");
-  
+  animateAll("#sidebar > header > a");//, #sidebar > header > p, #sidebar > nav"); 
 }
-//document.addEventListener('DOMContentLoaded', animateBackground);
+
+
+function forceSidebarDisplay() {
+  const p = document.querySelector('#sidebar > header > p')
+  p.style.webkitLineClamp = 10; // Ensure all lines are displayed
+  p.classList.remove('transparent');
+
+  document.querySelector('#sidebar > header > span.site-subtitle').classList.remove('transparent');
+  // TODO: remove transparent
+  Array.from(document.querySelectorAll('#sidebar nav a.nav-link')).forEach(e => {
+    e.classList.remove('transparent');
+    e.style.opacity = 1;
+
+    const children = e.querySelectorAll('span');
+    //children[0].style.opacity = 1;
+    children[0].classList.remove('transparent');
+    children[1].classList.remove('transparent');// = '0.5 !important';
+    children[2].classList.remove('transparent');
+  });
+}
+
+// ===========================
+//          M A I N 
+// ===========================
+
+
+document.getElementById('search-input').addEventListener('selectionchange', toggleBackgroundColor);
 document.addEventListener('DOMContentLoaded', async () => {
   document.querySelector('body').style.display = 'block';
-  if(['/', '/hacks-vault-theme/'].includes(new URL(document.URL).pathname)){ // home page
-    await terminalAnimation();
-    //animateBackground();
-  } else {
-    const p = document.querySelector('#sidebar > header > p')
-    p.style.webkitLineClamp = 10; // Ensure all lines are displayed
-    p.classList.remove('transparent');
-
-    document.querySelector('#sidebar > header > span.site-subtitle').classList.remove('transparent');
-    // TODO: remove transparent
-    Array.from(document.querySelectorAll('#sidebar nav a.nav-link')).forEach(e => {
-      e.classList.remove('transparent');
-      e.style.opacity = 1;
-
-      const children = e.querySelectorAll('span');
-      //children[0].style.opacity = 1;
-      children[0].classList.remove('transparent');
-      children[1].classList.remove('transparent');// = '0.5 !important';
-      children[2].classList.remove('transparent');
-      
-    });
-    updateChipLegs();
-    animateBackground();
+  switch(new URL(document.URL).pathname.split('/')[1]){
+    case '':
+    case 'hacks-vault-theme':
+    case 'hacks-vault':
+      document.styleSheets[1].insertRule(
+        `main div.content {padding: 1rem !important;}`, 
+        document.styleSheets[1].cssRules.length
+      );
+      await terminalAnimation();
+      //animateBackground();
+      break;
+    case 'about':
+      updateChipLegs();
+    case 'posts':
+      document.styleSheets[1].insertRule(
+        `main div.content {padding: 1rem 2rem 3rem !important;margin-top: 0;}`, 
+        document.styleSheets[1].cssRules.length
+      );
+      forceSidebarDisplay();
+      animateBackground();
+      break;
+    default:
+      document.styleSheets[1].insertRule(
+        `main div.content {padding: 1rem !important;background-color: rgba(20,20,20,.8);}`, 
+        document.styleSheets[1].cssRules.length
+      );
+      forceSidebarDisplay();
+      updateChipLegs();
+      animateBackground();
   }
-  
-
 });
-//document.addEventListener('resize', updateChipLegs); // Update on load and resize
-document.getElementById('search-input').addEventListener('selectionchange', toggleBackgroundColor);
-

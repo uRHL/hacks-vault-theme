@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 Gem::Specification.new do |spec|
-  spec.name          = "jekyll-theme-chirpy"
-  spec.version       = "7.3.0"
-  spec.authors       = ["Cotes Chung"]
-  spec.email         = ["cotes.chung@gmail.com"]
+  spec.name          = "jekyll-theme-hacks-vault"
+  spec.version       = "1.0.0"
+  spec.authors       = ["Ramon Hernandez Leon"]
+  spec.email         = ["100383351@alumnos.uc3m.es"]
 
-  spec.summary       = "A minimal, responsive, and feature-rich Jekyll theme for technical writing."
-  spec.homepage      = "https://github.com/cotes2020/jekyll-theme-chirpy"
+  spec.summary       = "A minimal, responsive, and feature-rich Jekyll theme for technical writing and CLI lovers. Forked from Chirpy theme."
+  spec.homepage      = "https://github.com/uRHL/hacks-vault-theme"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").select { |f|
@@ -15,10 +15,10 @@ Gem::Specification.new do |spec|
   }
 
   spec.metadata = {
-    "bug_tracker_uri"   => "https://github.com/cotes2020/jekyll-theme-chirpy/issues",
-    "documentation_uri" => "https://github.com/cotes2020/jekyll-theme-chirpy/#readme",
-    "homepage_uri"      => "https://cotes2020.github.io/chirpy-demo",
-    "source_code_uri"   => "https://github.com/cotes2020/jekyll-theme-chirpy",
+    "bug_tracker_uri"   => "https://github.com/uRHL/hacks-vault-theme/issues",
+    "documentation_uri" => "https://github.com/uRHL/hacks-vault-theme/#readme",
+    "homepage_uri"      => "https://urhl.github.io/hacks-vault-theme/",
+    "source_code_uri"   => "https://github.com/uRHL/hacks-vault-theme",
     "wiki_uri"          => "https://github.com/cotes2020/jekyll-theme-chirpy/wiki",
     "plugin_type"       => "theme"
   }

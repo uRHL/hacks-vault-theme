@@ -1,18 +1,18 @@
 {
-  "name": "jekyll-theme-chirpy",
-  "version": "7.3.0",
-  "description": "A minimal, responsive, and feature-rich Jekyll theme for technical writing.",
+  "name": "jekyll-theme-hacks-vault",
+  "version": "1.0.0",
+  "description": "A minimal, responsive, and feature-rich Jekyll theme for technical writing and CLI lovers. Forked from Chirpy theme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cotes2020/jekyll-theme-chirpy.git"
+    "url": "git+https://github.com/uRHL/hacks-vault.git"
   },
-  "author": "Cotes Chung",
+  "author": "Ramon Hernandez Leon",
   "license": "MIT",
-  "since": 2019,
+  "since": 2025,
   "bugs": {
-    "url": "https://github.com/cotes2020/jekyll-theme-chirpy/issues"
+    "url": "https://github.com/uRHL/hacks-vault/issues"
   },
-  "homepage": "https://github.com/cotes2020/jekyll-theme-chirpy/",
+  "homepage": "https://github.com/uRHL/hacks-vault",
   "scripts": {
     "build": "concurrently npm:build:*",
     "build:css": "node purgecss.js",

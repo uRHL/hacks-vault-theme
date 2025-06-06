@@ -2,9 +2,7 @@
 <img src="assets/img/banner.png">
 <br><br>
 
-# Hacks-Vault Jekyll Theme
-
-Customized version of Chirpy theme to look more like a terminal
+# A Jekyll theme for CLI enthusiasts
 
 ## Requirements
 
@@ -35,7 +33,7 @@ git clone https://github.com/your-username/forked-repo.git
 ### Clone
 
 ```bash
-YOUR_VAULT_NAME=""
+YOUR_VAULT_NAME="hacks-vault"
 # 1. Create a empty private repo in your account
 # 2. Clone this repo
 git clone https://github.com/uRHL/hacks-vault-theme.git $YOUR_VAULT_NAME$
@@ -137,7 +135,13 @@ Workflow and environment are now configured. Each time you push any change to th
   - [ ] TODO: Add `TOC` again to post pages
 - Search results
   - Change style to look like the home page
+- Footer:
+  - Update `THEME` reference
 
 ## TODOs
 
 - [ ] Dockerize
+
+## Hack-the-Vault: `HTV` CLI
+
+`HTV` is a command-line tool and python library to enhance your notes

@@ -36,6 +36,7 @@
 
   &.toast {
     &.show {
+      z-index: 3; // Show above contents
       display: block;
       min-width: 20rem;
       border-radius: 0.5rem;
